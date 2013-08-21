@@ -1,0 +1,5 @@
+evispa_post_code:
+    resource: "@EvispaPostCodeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

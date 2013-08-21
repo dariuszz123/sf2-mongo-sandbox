@@ -1,0 +1,46 @@
+<?php
+/**
+ * User: darius
+ * Date: 8/21/13
+ * Time: 7:55 PM
+ */
+
+namespace Evispa\PostCodeBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class PostCode
+{
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $code;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $street;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $number;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $city;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $municipality;
+}
