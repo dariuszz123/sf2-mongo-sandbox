@@ -1,0 +1,3 @@
+evispa_post_code_rest_api:
+    resource: Evispa\PostCodeBundle\Controller\PostCodeRestController
+    type: rest

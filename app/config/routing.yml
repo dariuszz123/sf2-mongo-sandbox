@@ -1,5 +1,4 @@
-evispa_post_code:
-    resource: "@EvispaPostCodeBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
+evispa_post_code_api:
+    resource: "@EvispaPostCodeBundle/Resources/config/routing/post_code_api.yml"
+    type: rest
+    prefix: /api

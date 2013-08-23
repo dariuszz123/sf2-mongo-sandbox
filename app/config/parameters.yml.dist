@@ -11,5 +11,8 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
+    mongodb_host: ~
+    mongodb_name: ~
+
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt

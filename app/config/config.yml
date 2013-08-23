@@ -23,14 +23,11 @@ framework:
 doctrine_mongodb:
     connections:
         default:
-            server: mongodb://192.168.1.122:27017
-    default_database: symfony
+            server: %mongodb_host%
+    default_database: %mongodb_name%
     document_managers:
         default:
             auto_mapping: true
-#            mappings:
-#                AcmeDemoBundle: ~
-#            metadata_cache_driver: array # array, apc, xcache, memcache
 
 # Twig Configuration
 twig:

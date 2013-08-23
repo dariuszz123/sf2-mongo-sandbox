@@ -8,39 +8,55 @@
 namespace Evispa\PostCodeBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * @MongoDB\Document
+ *
+ * @ExclusionPolicy("all")
  */
 class PostCode
 {
     /**
      * @MongoDB\Id
+     *
+     * @Expose
      */
     protected $id;
 
     /**
      * @MongoDB\String
+     *
+     * @Expose
      */
     protected $code;
 
     /**
      * @MongoDB\String
+     *
+     * @Expose
      */
     protected $street;
 
     /**
      * @MongoDB\String
+     *
+     * @Expose
      */
     protected $number;
 
     /**
      * @MongoDB\String
+     *
+     * @Expose
      */
     protected $city;
 
     /**
      * @MongoDB\String
+     *
+     * @Expose
      */
     protected $municipality;
 

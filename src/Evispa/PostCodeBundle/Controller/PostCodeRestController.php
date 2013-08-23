@@ -2,22 +2,19 @@
 
 namespace Evispa\PostCodeBundle\Controller;
 
-use Evispa\PostCodeBundle\Document\PostCode;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Doctrine\Common\Persistence\ObjectManager;
+use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\View\View;
 
-class DefaultController extends Controller
+class PostCodeRestController extends FOSRestController
 {
-    /**
-     * @Route("/")
-     * @Template()
-     */
-    public function indexAction()
+
+    public function getCodesAction()
     {
 //         $postCodeRepo = $this->get('doctrine')->getRepository('EvispaPostCodeBundle:PostCode');
 //         $oldPostCodes = $postCodeRepo->getLimited(500);
 
+        /** @var ObjectManager $dm */
         $dm = $this->get('doctrine_mongodb')->getManager();
 
         /** @var $oldPostCode \Evispa\PostCodeBundle\Entity\PostCode */
@@ -44,6 +41,17 @@ class DefaultController extends Controller
 
         $postCodes = $dm->getRepository('EvispaPostCodeBundle:PostCode')->findAll();
 
-        return array('codes' => $postCodes);
+        $codes = array();
+
+        foreach ($postCodes as $code) {
+            $codes[] = $code;
+        }
+
+        $view = View::create();
+
+        if ($postCodes) {
+            $view->setStatusCode(200)->setData($codes);
+        }
+        return $this->handleView($view);
     }
 }
